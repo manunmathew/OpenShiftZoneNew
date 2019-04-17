@@ -1871,7 +1871,7 @@
 						"value": "[parameters('coreInfraCustomTags')]"
 					},
 					"zones": {
-						"value": "[split(string(add(mod(copyIndex(),3),1)), ',')]"
+						"value": "[string(add(mod(copyIndex(),3),1))]"
 					}
 				}
 			}
@@ -1953,7 +1953,7 @@
 						"value": "[parameters('coreInfraCustomTags')]"
 					},
 					"zones": {
-						"value": "[split(string(add(mod(copyIndex(),3),1)), ',')]"
+						"value": "[string(add(mod(copyIndex(),3),1))]"
 					}
 				}
 			}
@@ -2038,7 +2038,7 @@
 						"value": "[parameters('coreInfraCustomTags')]"
 					},
 					"zones": {
-						"value": "[split(string(add(mod(copyIndex(),3),1)), ',')]"
+						"value": "[string(add(mod(copyIndex(),3),1))]"
 					}
 				}
 			}
@@ -2120,7 +2120,7 @@
 						"value": "[parameters('toolsCustomTags')]"
 					},
 					"zones": {
-						"value": "[split(string(add(mod(copyIndex(),3),1)), ',')]"
+						"value": "[string(add(mod(copyIndex(),3),1))]"
 					}
 				}
 			}
@@ -2202,7 +2202,7 @@
 						"value": "[parameters('productionCustomTags')]"
 					},
 					"zones": {
-						"value": "[split(string(add(mod(copyIndex(),3),1)), ',')]"
+						"value": "[string(add(mod(copyIndex(),3),1))]"
 					}
 				}
 			}
@@ -2284,7 +2284,7 @@
 						"value": "[parameters('acceptanceCustomTags')]"
 					},
 					"zones": {
-						"value": "[split(string(add(mod(copyIndex(),3),1)), ',')]"
+						"value": "[string(add(mod(copyIndex(),3),1))]"
 					}
 				}
 			}
