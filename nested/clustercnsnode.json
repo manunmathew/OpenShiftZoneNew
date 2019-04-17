@@ -186,9 +186,6 @@
 		"tags": "[parameters('customTags')]",
 		"plan": "[if(equals(parameters('osImageType'), 'marketplace'), parameters('marketplacePlan'), json('null'))]",
 		"properties": {
-			"availabilitySet": {
-				"id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySet'))]"
-			},
 			"hardwareProfile": {
 				"vmSize": "[parameters('vmSize')]"
 			},
