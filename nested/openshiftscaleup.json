@@ -43,6 +43,7 @@
 			"metadata": {
 				"description": "Administrator username on all VMs"
 			}
+		},
 		"nodeType": {
 			"type": "string",
 			"metadata": {
