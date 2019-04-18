@@ -92,6 +92,12 @@
 				"description": "Name of the new OpenShift compute node"
 			}
 		},
+		"zones": {
+			"type": "string",
+			"metadata": {
+				"description": "Availability zone to place VM into"
+			}
+		},
 		"nodeType": {
 			"type": "string",
 			"defaultValue": "production",
@@ -621,7 +627,7 @@
 			"name": "[concat(parameters('openshiftNodeHostname'), '-nic-01')]",
 			"location": "[variables('location')]",
 			"apiVersion": "[variables('apiVersionNetwork')]",
-			"tags": "[parameters('customTags')]",
+			"tags": "[parameters('nodeCustomTags')]",
 			"properties": {
 				"ipConfigurations": [{
 					"name": "[concat(parameters('openshiftNodeHostname'), 'ipconfig')]",
@@ -640,7 +646,7 @@
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "[variables('apiVersionLinkTemplate')]",
 			"dependsOn": [
-				"[concat('Microsoft.Network/networkInterfaces/', parameters('openshiftNodeHostname'), '-nic')]"
+				"[concat('Microsoft.Network/networkInterfaces/', parameters('openshiftNodeHostname'), '-nic-01')]"
 			],
 			"properties": {
 				"mode": "Incremental",
@@ -702,6 +708,9 @@
 					},
 					"customTags": {
 						"value": "[parameters('nodeCustomTags')]"
+					},
+					"zones": {
+						"value": "[parameters('zones')]"
 					}
 				}
 			}
