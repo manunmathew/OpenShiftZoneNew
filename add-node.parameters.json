@@ -36,8 +36,8 @@
 		"openshiftNodeHostname": {
 			"value": "nodename"
 		},
-		"nodeAvailabilitySet": {
-			"value": "nodeAvailabilitySet"
+		"zones": {
+			"value": "1"
 		},
 		"nodeType": {
 			"value": "production"
