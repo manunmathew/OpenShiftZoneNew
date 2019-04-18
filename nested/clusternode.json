@@ -56,12 +56,6 @@
 				"description": "Plan object for marketplace offer."
 			}
 		},
-		"availabilitySet": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of Availibility Set"
-			}
-		},
 		"hostName": {
 			"type": "string",
 			"metadata": {
