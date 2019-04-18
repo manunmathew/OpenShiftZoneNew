@@ -86,12 +86,6 @@
 				"description": "CNS hostname"
 			}
 		},
-		"availabilitySetArray": {
-			"type": "array",
-			"metadata": {
-				"description": "Availability set array"
-			}
-		},
 		"masterFirstAddrOctet4": {
 			"type": "int",
 			"metadata": {
@@ -263,13 +257,13 @@
 		"coreInfraVirtualNetworkResourceGroup": {
 			"type": "string",
 			"metadata": {
-				"description": "Name of the core infrastructure vNet for Master, Infra, CNS, and Tools nodes"
+				"description": "Name of the core infrastructure vNet resource group"
 			}
 		},
 		"coreInfraVirtualNetworkName": {
 			"type": "string",
 			"metadata": {
-				"description": "Name of the core infrastructure vNet resource group"
+				"description": "Name of the core infrastructure vNet for Master, Infra, CNS, and Tools nodes"
 			}
 		},
 		"masterSubnetName": {
@@ -743,23 +737,6 @@
 						"value": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups/', concat(parameters('openshiftClusterPrefix'), '-Nsg-Oscc-', parameters('nameSuffix')))]"
 					}
 				}
-			}
-		}, {
-			"type": "Microsoft.Compute/availabilitySets",
-			"name": "[parameters('availabilitySetArray')[copyIndex()].name]",
-			"location": "[parameters('location')]",
-			"apiVersion": "[parameters('apiVersionCompute')]",
-			"sku": {
-				"name": "Aligned"
-			},
-			"properties": {
-				"platformFaultDomainCount": "2",
-				"platformUpdateDomainCount": "5"
-			},
-			"tags": "[parameters('customTags')]",
-			"copy": {
-				"name": "availabiltySetLoop",
-				"count": "[length(parameters('availabilitySetArray'))]"
 			}
 		}, {
 			"condition": false,

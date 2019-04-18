@@ -741,16 +741,6 @@
 			{ "name": "[variables('diagStorageAccountI')]"},
 			{ "name": "[variables('diagStorageAccountC')]"}
 		],
-		"availabilitySetArray": [
-			{ "name": "[concat(parameters('openshiftClusterPrefix'), '-Prd-As-Oscm-11')]", "tagName": "MasterAvailabilitySet" },
-			{ "name": "[concat(parameters('openshiftClusterPrefix'), '-Prd-As-Osci-11')]", "tagName": "InfraAvailabilitySet" },
-			{ "name": "[concat(parameters('openshiftClusterPrefix'), '-Prd-As-Oscc-11')]", "tagName": "CNSAvailabilitySet" }
-		],
-		"nodeGroupAvailabilitySetArray": [
-			{ "name": "[concat(parameters('openshiftClusterPrefix'), '-Acc-As-Osca-01')]", "tagName": "ToolNodeGroupAvailabilitySet" },
-			{ "name": "[concat(parameters('openshiftClusterPrefix2'), '-Tst-As-Osca-01')]", "tagName": "TestNodeGroupAvailabilitySet" },
-			{ "name": "[concat(parameters('openshiftClusterPrefix2'), '-Dev-As-Osca-01')]", "tagName": "DevelopmentNodeGroupAvailabilitySet" }
-		],
 		"bastionIp": "[concat(variables('masterFirstAddrPrefix'), add(int(variables('masterFirstAddrOctets4split')[0]),14))]",
 		"masterFirstAddrOctets": "[split(parameters('masterSubnetPrefix'),'.')]",
 		"masterFirstAddrOctets4split": "[split(variables('masterFirstAddrOctets')[3],'/')]",
@@ -1307,9 +1297,6 @@
 					"openshiftCnsHostname": {
 						"value": "[variables('openshiftCnsHostname')]"
 					},
-					"availabilitySetArray": {
-						"value": "[variables('availabilitySetArray')]"
-					},
 					"masterFirstAddrOctet4": {
 						"value": "[variables('masterFirstAddrOctet4')]"
 					},
@@ -1493,9 +1480,6 @@
 					"diagStorageAccount": {
 						"value": "[variables('diagStorageAccountT')]"
 					},
-					"availabilitySetName": {
-						"value": "[variables('nodeGroupAvailabilitySetArray')[0].name]"
-					},
 					"virtualNetworkResourceGroupName": {
 						"value": "[parameters('toolsVirtualNetworkResourceGroup')]"
 					},
@@ -1585,9 +1569,6 @@
 					"openshiftNodeHostname": {
 						"value": "[variables('openshiftTestNodeHostname')]"
 					},
-					"availabilitySetName": {
-						"value": "[variables('nodeGroupAvailabilitySetArray')[1].name]"
-					},
 					"virtualNetworkResourceGroupName": {
 						"value": "[parameters('testVirtualNetworkResourceGroup')]"
 					},
@@ -1676,9 +1657,6 @@
 					},
 					"openshiftNodeHostname": {
 						"value": "[variables('openshiftDevelopmentNodeHostname')]"
-					},
-					"availabilitySetName": {
-						"value": "[variables('nodeGroupAvailabilitySetArray')[2].name]"
 					},
 					"virtualNetworkResourceGroupName": {
 						"value": "[parameters('devVirtualNetworkResourceGroup')]"
@@ -1840,9 +1818,6 @@
 					"marketplacePlan": {
 						"value": "[variables('marketplacePlan')]"
 					},
-					"availabilitySet": {
-						"value": "[variables('availabilitySetArray')[0].name]"
-					},
 					"hostName": {
 						"value": "[concat(variables('openshiftMasterHostname'), padLeft(add(copyIndex(), 1), 2, '1'))]"
 					},
@@ -1921,9 +1896,6 @@
 					},
 					"marketplacePlan": {
 						"value": "[variables('marketplacePlan')]"
-					},
-					"availabilitySet": {
-						"value": "[variables('availabilitySetArray')[1].name]"
 					},
 					"hostName": {
 						"value": "[concat(variables('openshiftInfraHostname'), padLeft(add(copyIndex(), 1), 2, '1'))]"
@@ -2007,9 +1979,6 @@
 					"marketplacePlan": {
 						"value": "[variables('marketplacePlan')]"
 					},
-					"availabilitySet": {
-						"value": "[variables('availabilitySetArray')[2].name]"
-					},
 					"hostName": {
 						"value": "[concat(variables('openshiftCnsHostname'), padLeft(add(copyIndex(), 1), 2, '1'))]"
 					},
@@ -2088,9 +2057,6 @@
 					},
 					"marketplacePlan": {
 						"value": "[variables('marketplacePlan')]"
-					},
-					"availabilitySet": {
-						"value": "[variables('nodeGroupAvailabilitySetArray')[0].name]"
 					},
 					"hostName": {
 						"value": "[concat(variables('openshiftToolsNodeHostname'), padLeft(add(copyIndex(), 1), 2, '0'))]"
@@ -2171,9 +2137,6 @@
 					"marketplacePlan": {
 						"value": "[variables('marketplacePlan')]"
 					},
-					"availabilitySet": {
-						"value": "[variables('nodeGroupAvailabilitySetArray')[1].name]"
-					},
 					"hostName": {
 						"value": "[concat(variables('openshiftTestNodeHostname'), padLeft(add(copyIndex(), 1), 2, '0'))]"
 					},
@@ -2252,9 +2215,6 @@
 					},
 					"marketplacePlan": {
 						"value": "[variables('marketplacePlan')]"
-					},
-					"availabilitySet": {
-						"value": "[variables('nodeGroupAvailabilitySetArray')[2].name]"
 					},
 					"hostName": {
 						"value": "[concat(variables('openshiftDevelopmentNodeHostname'), padLeft(add(copyIndex(), 1), 2, '0'))]"
@@ -2903,9 +2863,6 @@
 					},
 					"nodeNetworkSecurityGroup": {
 						"value": "[concat(variables('openshiftInfraHostname'), '-nsg')]"
-					},
-					"nodeAvailabilitySet": {
-						"value": "infraavailabilityset"
 					},
 					"masterClusterType": {
 						"value": "[parameters('masterClusterType')]"

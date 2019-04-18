@@ -92,19 +92,12 @@
 				"description": "Name of the new OpenShift compute node"
 			}
 		},
-		"nodeAvailabilitySet": {
-			"type": "string",
-			"defaultValue": "prod",
-			"metadata": {
-				"description": "The name of the Availability Set that the new compute node will be added to"
-			}
-		},
 		"nodeType": {
 			"type": "string",
 			"defaultValue": "production",
 			"allowedValues": ["production", "acceptance", "development", "test", "tools"],
 			"metadata": {
-				"description": "The name of the Availability Set that the new compute node will be added to"
+				"description": "The node group that the new compute node will be added to"
 			}
 		},
 		"diagStorageAccount": {
@@ -682,9 +675,6 @@
 					},
 					"marketplacePlan": {
 						"value": "[variables('marketplacePlan')]"
-					},
-					"availabilitySet": {
-						"value": "[parameters('nodeAvailabilitySet')]"
 					},
 					"hostName": {
 						"value": "[parameters('openshiftNodeHostname')]"

@@ -62,34 +62,28 @@
 				"description": "Compute node hostname"
 			}
 		},
-		"availabilitySetName": {
-			"type": "string",
-			"metadata": {
-				"description": "Availability set name"
-			}
-		},
 		"virtualNetworkResourceGroupName": {
 			"type": "string",
 			"metadata": {
-				"description": "Availability set name"
+				"description": "Name of the vNet resource group"
 			}
 		},
 		"existingVnetName": {
 			"type": "string",
 			"metadata": {
-				"description": "Availability set name"
+				"description": "Name of the node group vNet"
 			}
 		},
 		"subnetName": {
 			"type": "string",
 			"metadata": {
-				"description": "Availability set name"
+				"description": "Node group subnet name"
 			}
 		},
 		"subnetPrefix": {
 			"type": "string",
 			"metadata": {
-				"description": "Availability set name"
+				"description": "CIDR use for node group subnet"
 			}
 		},
 		"masterSubnetPrefix": {
@@ -259,19 +253,6 @@
 					}
 				}
 			}
-		}, {
-			"type": "Microsoft.Compute/availabilitySets",
-			"name": "[parameters('availabilitySetName')]",
-			"location": "[parameters('location')]",
-			"apiVersion": "[parameters('apiVersionCompute')]",
-			"sku": {
-				"name": "Aligned"
-			},
-			"properties": {
-				"platformFaultDomainCount": "2",
-				"platformUpdateDomainCount": "5"
-			},
-			"tags": "[parameters('customTags')]"
 		}, {
 			"type": "Microsoft.Network/networkInterfaces",
 			"name": "[concat(parameters('openshiftNodeHostname'), padLeft(add(copyindex(), 1), 2, parameters('hostSuffix')), '-nic-01')]",
