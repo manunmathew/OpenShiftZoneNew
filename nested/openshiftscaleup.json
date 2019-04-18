@@ -65,7 +65,7 @@
 		"name": "[concat(parameters('openshiftBastionHostname'), '/deployOpenShift')]",
 		"location": "[parameters('location')]",
 		"apiVersion": "[parameters('apiVersionCompute')]",
-		"tags": "[parameters('customTags')]",
+		"tags": "[parameters('nodeCustomTags')]",
 		"properties": {
 			"publisher": "Microsoft.Azure.Extensions",
 			"type": "CustomScript",
