@@ -76,6 +76,20 @@
 				"description": "Use Managed or Unmanaged Disks"
 			}
 		},
+		"bastionResourceGroup": {
+			"type": "string",
+			"defaultValue": "none",
+			"metadata": {
+				"description": "Resource group that contains bastion host"
+			}
+		},
+		"bastionSubscriptionId": {
+			"type": "string",
+			"defaultValue": "none",
+			"metadata": {
+				"description": "Subscription ID for bastion host resource group"
+			}
+		},
 		"openshiftBastionHostname": {
 			"type": "string",
 			"defaultValue": "mycluster",
@@ -769,6 +783,8 @@
 			"name": "NodeScaleUp",
 			"type": "Microsoft.Resources/deployments",
 			"apiVersion": "[variables('apiVersionLinkTemplate')]",
+			"resourceGroup": "[parameters('bastionResourceGroup')]",
+            "subscriptionId": "[parameters('bastionSubscriptionId')]",
 			"dependsOn": [
 				"NodeGroupPrep"
 			],

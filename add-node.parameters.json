@@ -30,6 +30,12 @@
 		"storageKind": {
 			"value": "managed"
 		},
+		"bastionResourceGroup": {
+			"value": "bastionvmrg"
+		},
+		"bastionSubscriptionId": {
+			"value": "bastionvmsubscription"
+		},
 		"openshiftBastionHostname": {
 			"value": "bastionvm"
 		},
