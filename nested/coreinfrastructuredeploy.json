@@ -746,7 +746,6 @@
 			"apiVersion": "[parameters('apiVersionNetwork')]",
 			"tags": "[parameters('customTags')]",
 			"dependsOn": [
-				"[if(equals(parameters('masterClusterType'), 'public'), concat('Microsoft.Network/publicIPAddresses/', parameters('openshiftMasterPublicIpDnsLabel')), '')]",
 				"CreateCnsSubnet"
 			],
 			"properties": {
@@ -794,7 +793,6 @@
 			"apiVersion": "[parameters('apiVersionNetwork')]",
 			"tags": "[parameters('customTags')]",
 			"dependsOn": [
-				"[if(equals(parameters('routerClusterType'), 'public'), concat('Microsoft.Network/publicIPAddresses/', parameters('infraLbPublicIpDnsLabel')), '')]",
 				"CreateCnsSubnet"
 			],
 			"properties": {
@@ -902,7 +900,6 @@
 			"apiVersion": "[parameters('apiVersionNetwork')]",
 			"tags": "[parameters('customTags')]",
 			"dependsOn": [
-				"[if(equals(parameters('routerClusterType'), 'public'), concat('Microsoft.Network/publicIPAddresses/', parameters('bastionPublicIp')), '')]",
 				"[concat('Microsoft.Network/networkSecurityGroups/', parameters('openshiftClusterPrefix'), '-Nsg-Oscm-', parameters('nameSuffix'))]",
 				"CreateMasterSubnet"
 			],
