@@ -250,6 +250,7 @@
 		},
 		"nodeAvailabilitySet": {
 			"type": "string",
+			"defaultValue": "NoAvailabilitySet",
 			"metadata": {
 				"description": "Name of Node Availability Set"
 			}
