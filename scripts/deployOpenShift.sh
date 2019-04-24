@@ -400,8 +400,12 @@ openshift_cluster_monitoring_operator_alertmanager_storage_enabled=true
 openshift_cluster_monitoring_operator_node_selector={"node-role.kubernetes.io/infra":"true"}
 
 # Setup metrics
-openshift_metrics_install_metrics=false
+openshift_metrics_install_metrics=true
 openshift_metrics_start_cluster=true
+openshift_metrics_storage_kind=dynamic
+openshift_metrics_duration=7
+openshift_master_dynamic_provisioning_enabled=true
+openshift_metrics_storage_volume_size=20Gi
 openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
 openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
 openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
