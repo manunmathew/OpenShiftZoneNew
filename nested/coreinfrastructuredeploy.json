@@ -395,7 +395,7 @@
 			"properties": {
 				"securityRules": [
                     {
-                        "name": "Allow-Step1-To-Oscm-TCP-22",
+                        "name": "Allow-StepStone-To-Oscm-TCP-22",
                         "properties": {
                             "description": "Allow SSH in from StepStoneSubnet1",
                             "protocol": "Tcp",
@@ -403,7 +403,9 @@
                             "destinationPortRange": "22",
                             "sourceAddressPrefixes":[
                                 "10.232.0.32/27",
-                                "10.236.0.32/27"
+                                "10.236.0.32/27",
+								"10.232.4.128/28",
+								"10.236.4.128/28"
                             ], 
                             "destinationAddressPrefix": "[parameters('masterSubnetPrefix')]",
                             "access": "Allow",
